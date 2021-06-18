@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<map version="1.0">  
+    <mapID target="index" url="paginas/index.html"/> 
+    <mapID target="coleccion" url="paginas/coleccion.html"/>
+    <mapID target="informePredefinido" url="paginas/informePredefinido.html"/>
+    <mapID target="informePersonalizado" url="paginas/informePersonalizado.html"/>
+    <mapID target="comic" url="paginas/comic.html"/>
+</map>

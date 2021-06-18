@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<toc version="1.0">  
+    <tocitem text="Comic" target="comic" />
+    <tocitem text="Coleccion" target="coleccion"/>
+    <tocitem text="Informe Personalizado" target="informePersonalizado"/>
+    <tocitem text="Informe Predefinido" target="informePredefinido"/>
+</toc> 

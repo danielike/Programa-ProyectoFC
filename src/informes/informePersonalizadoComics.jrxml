@@ -1,0 +1,173 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Created with Jaspersoft Studio version 6.13.0.final using JasperReports Library version 6.13.0-46ada4d1be8f3c5985fd0b6146f3ed44caed6f05  -->
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="informePersonalizadoComics" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="d797ffa1-e5ae-415f-a7a1-88fda28ea16d">
+	<property name="com.jaspersoft.studio.data.defaultdataadapter" value="DataAdapter.xml"/>
+	<property name="com.jaspersoft.studio.data.sql.tables" value=""/>
+	<parameter name="IdComic" class="java.lang.Integer"/>
+	<queryString>
+		<![CDATA[select titulo, date_format(fecha_adquisicion, "%d/%m/%Y") as 
+fecha_adquisicion, col.nombre as NombreColeccion, 
+col.sinopsis as SinopsisColeccion, numero_coleccion 
+from comics cs 
+inner join colecciones col on cs.id_coleccion =  col.id
+where cs.id = $P{IdComic} ]]>
+	</queryString>
+	<field name="titulo" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.label" value="titulo"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="comics"/>
+	</field>
+	<field name="fecha_adquisicion" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.label" value="fecha_adquisicion"/>
+	</field>
+	<field name="NombreColeccion" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.label" value="NombreColeccion"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="colecciones"/>
+	</field>
+	<field name="SinopsisColeccion" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.label" value="SinopsisColeccion"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="colecciones"/>
+	</field>
+	<field name="numero_coleccion" class="java.lang.Integer">
+		<property name="com.jaspersoft.studio.field.label" value="numero_coleccion"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="comics"/>
+	</field>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="79" splitType="Stretch">
+			<textField>
+				<reportElement x="20" y="0" width="524" height="69" uuid="0c75e036-010e-460f-ad4a-b92db22027ac"/>
+				<textElement textAlignment="Center">
+					<font fontName="Candara" size="20" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA["Información de comic " + $F{titulo}]]></textFieldExpression>
+			</textField>
+		</band>
+	</title>
+	<pageHeader>
+		<band height="35" splitType="Stretch"/>
+	</pageHeader>
+	<columnHeader>
+		<band height="61" splitType="Stretch">
+			<staticText>
+				<reportElement x="0" y="0" width="111" height="40" uuid="42cd9cb4-a30d-4bfd-a902-c405aaa7aff1">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="6976188b-2d66-4f8f-b58c-734c6b27639e"/>
+				</reportElement>
+				<textElement>
+					<font fontName="Consolas" size="16" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Título]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="111" y="0" width="111" height="40" uuid="cdcc5c9e-9450-4bf2-b9e6-bad3ffd20438">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="8af664c0-f6f0-4480-854b-1607203bb7cb"/>
+				</reportElement>
+				<textElement>
+					<font fontName="Consolas" size="16" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Fecha adquisición]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="222" y="0" width="111" height="40" uuid="5cea4e09-db67-442e-80f4-12e0246bcf53">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="ef144eda-b861-4a10-bb80-ee18c6d61b9c"/>
+				</reportElement>
+				<textElement>
+					<font fontName="Consolas" size="16" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Nombre Colección]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="333" y="0" width="117" height="40" uuid="201a5c36-b9f3-4e97-871b-63cb1cb63120">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="6708d295-d714-4f4c-99c9-c9d9d3d88e78"/>
+				</reportElement>
+				<textElement>
+					<font fontName="Consolas" size="16" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Sinopsis Colección]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="450" y="0" width="105" height="40" uuid="138bda9d-abbe-43f5-8caa-f15d74bc0c47">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="019b1f88-f53e-4f60-b3ee-1b8a6dae57bd"/>
+				</reportElement>
+				<textElement>
+					<font fontName="Consolas" size="16" isBold="true"/>
+				</textElement>
+				<text><![CDATA[NºColección]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="71" splitType="Stretch">
+			<textField>
+				<reportElement x="0" y="0" width="111" height="64" uuid="d6e53440-c73e-4858-9a28-63512e958700">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="6976188b-2d66-4f8f-b58c-734c6b27639e"/>
+				</reportElement>
+				<textElement>
+					<font size="14"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{titulo}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="110" y="0" width="111" height="30" uuid="68be8f3e-4ca1-4dd2-a733-a0e997f490df">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="8af664c0-f6f0-4480-854b-1607203bb7cb"/>
+				</reportElement>
+				<textElement textAlignment="Center">
+					<font size="14"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{fecha_adquisicion}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="222" y="0" width="111" height="64" uuid="eae7ec0c-682c-428a-99bf-9b8efa8861b0">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="ef144eda-b861-4a10-bb80-ee18c6d61b9c"/>
+				</reportElement>
+				<textElement>
+					<font size="14"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{NombreColeccion}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="333" y="0" width="117" height="64" uuid="7dfe0d56-284d-44d1-8725-7a5241cc6289">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="6708d295-d714-4f4c-99c9-c9d9d3d88e78"/>
+				</reportElement>
+				<textElement>
+					<font size="14"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{SinopsisColeccion}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="450" y="10" width="90" height="30" uuid="515c8266-c0e0-41ca-8d76-decc6b2c2a6f">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="019b1f88-f53e-4f60-b3ee-1b8a6dae57bd"/>
+				</reportElement>
+				<textElement textAlignment="Right">
+					<font size="14"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{numero_coleccion}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<columnFooter>
+		<band height="45" splitType="Stretch"/>
+	</columnFooter>
+	<pageFooter>
+		<band height="54" splitType="Stretch">
+			<textField>
+				<reportElement x="180" y="10" width="100" height="30" uuid="ae3fde2e-debd-43c2-984a-cf6828d18c0d"/>
+				<textElement textAlignment="Right">
+					<font size="14"/>
+				</textElement>
+				<textFieldExpression><![CDATA["Page " + $V{PAGE_NUMBER}]]></textFieldExpression>
+			</textField>
+			<textField evaluationTime="Report">
+				<reportElement x="280" y="10" width="100" height="30" uuid="27104f6a-9569-47f3-a5b1-37b3aaac7b6c"/>
+				<textElement textAlignment="Left">
+					<font size="14"/>
+				</textElement>
+				<textFieldExpression><![CDATA[" of " + $V{PAGE_NUMBER}]]></textFieldExpression>
+			</textField>
+		</band>
+	</pageFooter>
+	<summary>
+		<band height="42" splitType="Stretch"/>
+	</summary>
+</jasperReport>

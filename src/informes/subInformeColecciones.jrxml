@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Created with Jaspersoft Studio version 6.13.0.final using JasperReports Library version 6.13.0-46ada4d1be8f3c5985fd0b6146f3ed44caed6f05  -->
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="subInformeColecciones" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="510e994f-f999-4d35-9f1f-4ab5db77ca38">
+	<property name="com.jaspersoft.studio.data.defaultdataadapter" value="DataAdapter.xml"/>
+	<property name="com.jaspersoft.studio.data.sql.tables" value=""/>
+	<parameter name="IdColeccion" class="java.lang.Integer"/>
+	<queryString>
+		<![CDATA[select titulo, date_format(fecha_adquisicion, "%d/%m/%Y") AS 
+fecha_adquisicion, FORMAT(precio, 2, 'es_ES')AS precio, estado, numero_coleccion
+from comics 
+where id_coleccion =  $P{IdColeccion} 
+order by titulo]]>
+	</queryString>
+	<field name="titulo" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.label" value="titulo"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="comics"/>
+	</field>
+	<field name="fecha_adquisicion" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.label" value="fecha_adquisicion"/>
+	</field>
+	<field name="precio" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.label" value="precio"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="comics"/>
+	</field>
+	<field name="estado" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.label" value="estado"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="comics"/>
+	</field>
+	<field name="numero_coleccion" class="java.lang.Integer">
+		<property name="com.jaspersoft.studio.field.label" value="numero_coleccion"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="comics"/>
+	</field>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="47" splitType="Stretch">
+			<staticText>
+				<reportElement x="0" y="0" width="156" height="30" uuid="c09a974d-d56e-4e38-92c8-9b78fe5a839f"/>
+				<textElement>
+					<font size="16" isItalic="true" isUnderline="true"/>
+				</textElement>
+				<text><![CDATA[Título]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="156" y="0" width="111" height="45" uuid="a1704e71-7aff-49ab-8dc3-7f7ebe89d84b"/>
+				<textElement>
+					<font size="16" isItalic="true" isUnderline="true"/>
+				</textElement>
+				<text><![CDATA[Fecha adquisición]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="267" y="0" width="103" height="45" uuid="9c04e141-6b9c-4791-903c-c0826f1f0c01"/>
+				<textElement>
+					<font size="16" isItalic="true" isUnderline="true"/>
+				</textElement>
+				<text><![CDATA[Precio]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="370" y="0" width="110" height="45" uuid="89000085-291d-497f-92cf-6ceb6ad1c885"/>
+				<textElement>
+					<font size="16" isItalic="true" isUnderline="true"/>
+				</textElement>
+				<text><![CDATA[Estado]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="480" y="0" width="75" height="45" uuid="d5941019-f448-48b1-acf9-b1bbdaa5a108"/>
+				<textElement>
+					<font size="16" isItalic="true" isUnderline="true"/>
+				</textElement>
+				<text><![CDATA[NºColección]]></text>
+			</staticText>
+		</band>
+	</title>
+	<detail>
+		<band height="51" splitType="Stretch">
+			<textField>
+				<reportElement x="0" y="0" width="156" height="51" uuid="e3f9e095-c65b-4b2d-a8a7-3ff16e568a42"/>
+				<textElement>
+					<font fontName="SansSerif" size="14"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{titulo}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="156" y="0" width="111" height="40" uuid="ffe83acd-66b1-4fca-a461-83f8c41f37e4"/>
+				<textElement>
+					<font fontName="SansSerif" size="14"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{fecha_adquisicion}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="267" y="0" width="103" height="40" uuid="80cf8e34-400c-4e45-8802-1ff5df885e75"/>
+				<textElement>
+					<font fontName="SansSerif" size="14"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{precio} + " €"]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="370" y="0" width="111" height="40" uuid="ab881ec3-3e34-482e-9159-5bee2533275b"/>
+				<textElement>
+					<font fontName="SansSerif" size="14"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{estado}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="480" y="0" width="75" height="40" uuid="48d188db-b482-42f3-b48f-829b27381de6"/>
+				<textElement>
+					<font fontName="SansSerif" size="14"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{numero_coleccion}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+</jasperReport>
